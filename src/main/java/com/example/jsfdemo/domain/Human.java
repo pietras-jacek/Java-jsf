@@ -1,90 +1,34 @@
 package com.example.jsfdemo.domain;
 
-import java.util.Date;
+import java.util.List;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-
 public class Human {
-	
-	private String firstName = "unknown";
-	private String zipCode = "";
-	private String pin = "";
-	private Date dateOfBirth = new Date();
-	private double weight;
-	private boolean married;
-	private int numOfChildren;
-	private String Pesel;
-	private String Name;
-	
-	@Size(min = 2, max = 20)
-	public String getFirstName() {
-		return firstName;
-	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	
-	@Pattern(regexp = "[0-9]{2}-[0-9]{3}")
-	public String getZipCode() {
-		return zipCode;
-	}
-	public void setZipCode(String zipCode) {
-		this.zipCode = zipCode;
-	}
-	
-	@Size(min = 2)
-	public String getPin() {
-		return pin;
-	}
-	public void setPin(String pin) {
-		this.pin = pin;
-	}
-	
-	@Min(0)
-	public int getNumOfChildren() {
-		return numOfChildren;
-	}
-	public void setNumOfChildren(int numOfChildren) {
-		this.numOfChildren = numOfChildren;
-	}
-	
-	@Past
-	public Date getDateOfBirth() {
-		return dateOfBirth;
-	}
-	public void setDateOfBirth(Date dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
-	
-	public double getWeight() {
-		return weight;
-	}
-	public void setWeight(double weight) {
-		this.weight = weight;
-	}
-	
-	public boolean isMarried() {
-		return married;
-	}
-	public void setMarried(boolean married) {
-		this.married = married;
-	}
-	
-	public void setPesel(String Pesel) {
-		this.Pesel = Pesel;
-	}
-	public String getPesel() {
-		return Pesel;
 
+	private String Name = "unknown";
+	private String Pesel = "";
+
+	@Size(min = 2, max = 20)
+	public String getName() {
+		return Name;
 	}
+
+
+
 	public void setName(String Name) {
 		this.Name = Name;
 	}
-	public String getName() {
-		return Name;
+
+	@Pattern(regexp = "[0-9]")
+	public String getPesel() {
+		return Pesel;
+	}
+	public void setPesel(String Pesel) {
+		this.Pesel = Pesel;
+	}
+	public void setWrappedData(List<Human> allHumans) {
+
 
 	}
 

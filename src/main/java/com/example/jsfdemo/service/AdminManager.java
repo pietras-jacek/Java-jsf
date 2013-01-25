@@ -6,44 +6,42 @@ import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 
 import com.example.jsfdemo.domain.Human;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.enterprise.context.ApplicationScoped;
+
+import com.example.jsfdemo.domain.Human;
+
 
 @ApplicationScoped
 public class AdminManager {
 	private List<Human> db = new ArrayList<Human>();
 
-	public void addPerson(Human person) {
+	public void addHuman(Human human) {
 		Human newHuman = new Human();
 
-		newHuman.setPesel(person.getPesel());
-		newHuman.setName(person.getName());
-		
-		
-		newHuman.setFirstName(person.getFirstName());
-		newHuman.setZipCode(person.getZipCode());
-		newHuman.setPin(person.getPin());
-		newHuman.setDateOfBirth(person.getDateOfBirth());
-		newHuman.setMarried(person.isMarried());
-		newHuman.setWeight(person.getWeight());
-		newHuman.setNumOfChildren(person.getNumOfChildren());
+		newHuman.setName(human.getName());
+		newHuman.setPesel(human.getPesel());
+
 
 		db.add(newHuman);
 	}
 
-	// Removes the person with given Pesel
-	public void deletePerson(Human person) {
-		Human personToRemove = null;
+	// usuwa humana z wybranym peselem
+	public void deleteHuman(Human human) {
+		Human humanToRemove = null;
 		for (Human p : db) {
-			if (person.getPesel().equals(p.getPesel())) {
-				personToRemove = p;
+			if (human.getPesel().equals(p.getPesel())) {
+				humanToRemove = p;
 				break;
 			}
 		}
-		if (personToRemove != null)
-			db.remove(personToRemove);
+		if (humanToRemove != null)
+			db.remove(humanToRemove);
 	}
 
-	public List<Human> getAllPersons() {
+	public List<Human> getAllHumans() {
 		return db;
 	}
 }
-
